@@ -6,6 +6,7 @@ public class BulletScript : MonoBehaviour {
 
     public float FlyingSpeed;
     public float LifeTime;
+    public GameObject explosion;
 
     public void InitAndShoot (Vector3 Direction)
     {
@@ -26,6 +27,8 @@ public class BulletScript : MonoBehaviour {
     public void OnTriggerEnter (Collider other)
     {
         other.gameObject.SendMessage("Hit", damage);
+        explosion.gameObject.transform.parent = null;
+        explosion.gameObject.SetActive (true);
         KillYourSelf();
     }
 }
