@@ -13,11 +13,20 @@ public class GunManager : MonoBehaviour {
 
     public GameObject muzzleFlash;
     public GameObject bulletCandidate;
+    private AudioSource gunShootSound;
+    
+    public void Start ()
+    {
+        gunShootSound = this.GetComponent<AudioSource> ();
+    }
 
 	public void TryToTriggerGun ()
     {
         if (shootCounter <= 0)
         {
+            gunShootSound.Stop ();
+            gunShootSound.Play ();
+            
             this.transform.DOShakeRotation(MinimunShootPeriod * 0.8f, 3f);
             muzzleCounter = MuzzleShowPeriod;
             muzzleFlash.transform.localEulerAngles = new Vector3(0, 0, Random.Range(0, 360));

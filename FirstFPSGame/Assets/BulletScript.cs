@@ -7,6 +7,7 @@ public class BulletScript : MonoBehaviour {
     public float FlyingSpeed;
     public float LifeTime;
     public GameObject explosion;
+    public AudioSource bulletAudio;
 
     public void InitAndShoot (Vector3 Direction)
     {
@@ -29,6 +30,7 @@ public class BulletScript : MonoBehaviour {
         other.gameObject.SendMessage("Hit", damage);
         explosion.gameObject.transform.parent = null;
         explosion.gameObject.SetActive (true);
+        bulletAudio.pitch = Random.Range(0.0f, 1);
         KillYourSelf();
     }
 }

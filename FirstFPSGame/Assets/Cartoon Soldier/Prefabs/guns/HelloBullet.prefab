@@ -513,6 +513,8 @@ MonoBehaviour:
   FlyingSpeed: 80
   LifeTime: 5
   explosion: {fileID: 1658349093118102}
+  bulletAudio: {fileID: 82386359294701368, guid: 4f80fb000ef01d14b98799211abb285e,
+    type: 2}
   damage: 15
 --- !u!114 &114824109109567054
 MonoBehaviour:
